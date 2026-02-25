@@ -63,3 +63,34 @@ network:
       nameservers:
         addresses: [8.8.8.8, 8.8.4.4] # setting up Google's DNS servers
 ```
+
+5. **Configure `hosts file` in your personal PC to map server IPs to custom server names**
+
+The host file to edit is: **/etc/hosts**.
+```bash
+sudo vim /etc/hosts
+```
+
+Add your custom server name to IP mapping (just like DNS does) at the bottom of the file and save
+```bash
+# my vmware vm servers
+# mapping their IPs to custom names I can remember easily just like DNS
+192.168.100.200    rockyservervm.lab
+192.168.100.201    ubuntuservervm.lab
+```
+
+You can now ssh into your servers using the names you assigned them like so:
+```bash
+ssh ubuntu_user@ubuntuservervm
+```
+or
+```bash
+ssh rocky_user@ubuntuservervm
+```
+
+6. **Nginx web server on browser**
+
+If you have Nginx setup to serve a website from the server you configured above, you can access that website in a browser by using its name like so:
+```bash
+http://rockyserver.lab
+```
