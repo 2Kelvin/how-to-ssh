@@ -21,3 +21,45 @@ ssh server_user@server_ip_address
 ```
 
 Example: ssh rockylinux_user@192:168:98:22
+
+4. ## For servers
+
+- ### RHEL/Rocky Linux
+**Use `nmcli` to manually set a static ip for the servers**
+nmcli is (Network Manager CLI (command line interface))
+
+Example:
+```bash
+# ens160 is the ethernet of my machine: get yours by running 'nmcli device': select the device connected to the internet: ethernet or wifi
+sudo nmcli connection modify ens160 ipv4.addresses 192.168.100.200/24 ipv4.gateway 192.168.100.1
+
+# changing from automatic DHCP ip address to a manually set static ip address
+sudo nmcli connection modify ens160 ipv4.method manual
+
+# adding google dns servers: 8.8.8.8 is the default and 8.8.4.4 is the backup DNS servers
+sudo nmcli connection modify ens160 ipv4.dns 8.8.8.8,8.8.4.4
+
+# applying above changes to reflect new configurations
+sudo nmcli connection up ens160
+```
+
+- ### Ubuntu Server
+
+**Update `netplan` config (the YAML file located in /etc/netplan/) to set a static IP address for the ubuntu server**
+
+Example of disabling automatic IP address by DHCP and setting a static IP. I include also the router's default gateway and Google's DNS servers just like I did in rocky linux above.
+
+```bash
+network:
+  version: 2
+  ethernets:
+    ens33:
+      dhcp4: no # disabling DHCP
+      addresses:
+        - 192.168.100.201/24 # setting a static IP address
+      routes:
+        - to: default
+          via:  192.168.100.1 # setting the default gateway IP
+      nameservers:
+        addresses: [8.8.8.8, 8.8.4.4] # setting up Google's DNS servers
+```
