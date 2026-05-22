@@ -10,20 +10,23 @@
 
 2. **Copy your SSH public key to the remote server.**
    From your personal PC run this command.
-   `bash
-ssh-copy-id user@server_ip
-`
+
+   ```bash
+   ssh-copy-id user@server_ip
+   ```
 
 Then you'll be prompted for the **remote server's user account password** in order to complete copying your personal SSH public key to the remote server.
 
 Example: ssh-copy-id ubuntu@192:168:98:22
 
 3. **Login to server using SSH**
+
    ```bash
    ssh user@server_ip
-   ```
 
-Example: ssh kelvin@192:168:98:22
+   # Example:
+   #ssh kelvin@192:168:98:22
+   ```
 
 ---
 
