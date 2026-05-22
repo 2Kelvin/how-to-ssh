@@ -28,8 +28,6 @@ Example: ssh-copy-id ubuntu@192:168:98:22
    #ssh kelvin@192:168:98:22
    ```
 
----
-
 ## Creating `Static IPs` for Servers
 
 - ### Ubuntu Server
@@ -80,8 +78,6 @@ Example: ssh-copy-id ubuntu@192:168:98:22
   # applying above changes to reflect new configurations
   sudo nmcli connection up ens160
   ```
-
----
 
 ## Creating Server `Hostnames`
 
