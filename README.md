@@ -40,7 +40,7 @@ Example: ssh-copy-id ubuntu@192:168:98:22
         network:
           version: 2
           ethernets:
-            ens33:
+            ens33: # your network card/ethernet name
               dhcp4: no # disabling DHCP
               addresses:
                 - 192.168.100.201/24 # setting a static IP address
