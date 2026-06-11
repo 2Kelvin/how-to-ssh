@@ -34,7 +34,7 @@ Example: ssh-copy-id ubuntu@192:168:98:22
 
   **Update `netplan` config (the YAML file located in /etc/netplan/) to set a static IP address for the ubuntu server**
 
-  Example of disabling automatic IP address by DHCP and setting a static IP. I include also the router's default gateway and Google's DNS servers just like I did in rocky linux above.
+  Example of disabling automatic IP address by DHCP and setting a static IP. I include also the router's default gateway and Google's DNS servers.
 
         ```bash
         network:
